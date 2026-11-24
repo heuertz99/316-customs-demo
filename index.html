@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>316 Customs — Concept B (Dark) · Demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,500;0,600;0,700;0,800;1,700;1,800;1,900&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="site.css">
+<style>
+body{margin:0}*,*::before,*::after{box-sizing:border-box}img,video{display:block;max-width:100%}a{color:inherit;text-decoration:none}button{font:inherit}
+
+.Bp{--navy:#0B1A33;--navy2:#14306B;--red:#C8102E;--ink:#0E1420;--mute:#5B6573;--line:#DCDFE4;--paper:#F5F4F1;--steel:#E9EBEE;
+  background:#fff;color:var(--ink);font-family:'Barlow',sans-serif;font-size:17px;line-height:1.55;overflow:hidden}
+.Bp .wrap{max-width:1320px;margin:0 auto;padding:0 48px}
+.Bp .lbl{font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:13px;letter-spacing:.18em;text-transform:uppercase}
+.Bp .mono{font-family:'Barlow Condensed',sans-serif;font-weight:500;letter-spacing:.06em}
+.Bp .h1{font-family:'Saira',sans-serif;font-style:italic;font-weight:900;text-transform:uppercase;font-size:84px;line-height:.94;letter-spacing:-.01em;margin:0;color:var(--navy)}
+.Bp .h2{font-family:'Saira',sans-serif;font-style:italic;font-weight:800;text-transform:uppercase;font-size:50px;line-height:.98;margin:0;color:var(--navy)}
+.Bp .btn{display:inline-flex;align-items:center;gap:10px;min-height:50px;padding:0 24px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:15px;letter-spacing:.12em;text-transform:uppercase;border:0;border-radius:2px;transition:background .2s,transform .2s}
+.Bp .btn-navy{background:var(--navy);color:#fff}.Bp .btn-navy:hover{background:var(--navy2)}
+.Bp .btn-red{background:var(--red);color:#fff}.Bp .btn-red:hover{background:#A50D26}
+.Bp .btn-line{background:#fff;color:var(--navy);box-shadow:inset 0 0 0 1.5px var(--navy)}.Bp .btn-line:hover{background:var(--paper)}
+/* top + header */
+.Bp .top{background:var(--navy);color:#C8D0DC;font-size:13px}
+.Bp .top .wrap{display:flex;justify-content:space-between;height:40px;align-items:center}
+.Bp .top a{color:#fff}
+.Bp .hdr{border-bottom:1px solid var(--line);background:#fff;position:relative;z-index:3}
+.Bp .hdr .wrap{display:flex;align-items:center;justify-content:space-between;height:84px}
+.Bp .hdr nav{display:flex;gap:4px}
+.Bp .hdr nav a{padding:10px 16px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);border-radius:2px}
+.Bp .hdr nav a:hover{background:var(--paper)}
+.Bp .hdr nav a.on{color:var(--red)}
+.Bp .tools{display:flex;align-items:center;gap:6px}
+.Bp .iconbtn{width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;border:0;background:transparent;color:var(--ink);position:relative}
+.Bp .iconbtn:hover{background:var(--paper)}
+.Bp .badge{position:absolute;top:6px;right:4px;background:var(--red);color:#fff;font-size:11px;font-weight:700;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.Bp .menu-m{display:none}
+/* intro */
+.Bp .intro{padding:72px 0 56px;background:linear-gradient(180deg,#fff 0%,var(--paper) 100%)}
+.Bp .intro .grid{display:grid;grid-template-columns:260px 1fr 340px;gap:56px;align-items:center}
+.Bp .intro .crest{width:260px}
+.Bp .intro p{color:var(--mute);margin:0 0 26px;font-size:18px}
+.Bp .tick{display:flex;align-items:center;gap:12px;color:var(--red);margin-bottom:18px}
+.Bp .tick i{width:36px;height:3px;background:var(--red);display:block}
+/* bays */
+.Bp .bays{display:grid;grid-template-columns:repeat(4,1fr);height:720px;background:var(--navy)}
+.Bp .bay{position:relative;overflow:hidden;isolation:isolate;display:flex;flex-direction:column;justify-content:flex-end;padding:34px 32px;color:#fff;border-right:1px solid rgba(255,255,255,.14)}
+.Bp .bay:last-child{border-right:0}
+.Bp .bay img,.Bp .bay video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 1s cubic-bezier(.2,.7,.2,1),filter .6s;filter:saturate(.9)}
+.Bp .bay::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(11,26,51,.95) 0%,rgba(11,26,51,.45) 46%,rgba(11,26,51,.1) 100%);transition:background .5s}
+.Bp .bay:hover img,.Bp .bay:hover video{transform:scale(1.05);filter:saturate(1.1)}
+.Bp .bay .num{position:absolute;top:26px;left:32px;font-family:'Saira',sans-serif;font-style:italic;font-weight:900;font-size:64px;line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.75)}
+.Bp .bay .door{position:absolute;top:0;left:0;right:0;height:10px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.18) 0 2px,transparent 2px 60px)}
+.Bp .bay h3{font-family:'Saira',sans-serif;font-style:italic;font-weight:900;text-transform:uppercase;font-size:40px;line-height:.95;margin:0 0 10px}
+.Bp .bay p{margin:0 0 22px;color:#D3DAE5;font-size:15px;max-width:260px}
+.Bp .bay ul{list-style:none;padding:0;margin:0 0 24px;display:grid;gap:6px;font-size:14px;color:#C2CBD8}
+.Bp .bay ul li{display:flex;gap:8px;align-items:center}
+.Bp .bay ul li::before{content:"";width:6px;height:6px;background:var(--red);display:block}
+.Bp .bay .go{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;padding:12px 16px;background:rgba(255,255,255,.1);box-shadow:inset 0 0 0 1px rgba(255,255,255,.3);border-radius:2px}
+.Bp .bay:hover .go{background:var(--red);box-shadow:none}
+/* spec strip */
+.Bp .spec{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
+.Bp .spec div{padding:34px 32px;border-right:1px solid var(--line);display:flex;gap:16px;align-items:flex-start}
+.Bp .spec div:last-child{border-right:0}
+.Bp .spec svg{color:var(--red);flex:none;margin-top:2px}
+.Bp .spec b{display:block;font-weight:600;color:var(--navy);font-size:17px}
+.Bp .spec span{font-size:14px;color:var(--mute)}
+/* rows */
+.Bp .sec{padding:120px 0}
+.Bp .row{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;padding:70px 0;border-top:1px solid var(--line)}
+.Bp .row:first-of-type{border-top:0;padding-top:0}
+.Bp .row.rev .media{order:2}
+.Bp .media{display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:1fr 1fr;gap:12px;height:520px}
+.Bp .media > *{border-radius:3px;overflow:hidden;position:relative}
+.Bp .media img,.Bp .media video{width:100%;height:100%;object-fit:cover}
+.Bp .media .big{grid-row:1/3}
+.Bp .media .tag{position:absolute;left:12px;bottom:12px;background:#fff;color:var(--navy);padding:6px 10px;border-radius:2px;font-size:12px}
+.Bp .dnum{font-family:'Saira',sans-serif;font-style:italic;font-weight:900;font-size:20px;color:var(--red);display:block;margin-bottom:10px}
+.Bp .row p.lead{color:var(--mute);margin:20px 0 26px;font-size:18px}
+.Bp dl{margin:0 0 30px;display:grid;grid-template-columns:170px 1fr;border-top:1px solid var(--line)}
+.Bp dt,.Bp dd{margin:0;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}
+.Bp dt{font-family:'Barlow Condensed',sans-serif;font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:13px;color:var(--mute);padding-top:14px}
+.Bp dd{color:var(--ink);font-weight:500}
+/* process */
+.Bp .process{background:var(--navy);color:#fff;padding:110px 0}
+.Bp .process .h2{color:#fff}
+.Bp .steps{display:grid;grid-template-columns:repeat(4,1fr);margin-top:56px;position:relative}
+.Bp .steps::before{content:"";position:absolute;left:0;right:0;top:27px;height:1px;background:rgba(255,255,255,.25)}
+.Bp .step{position:relative;padding-right:34px}
+.Bp .step .dot{width:56px;height:56px;border-radius:50%;background:var(--navy);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.5);display:flex;align-items:center;justify-content:center;margin-bottom:26px;position:relative}
+.Bp .step:first-child .dot{background:var(--red);box-shadow:none}
+.Bp .step h4{font-family:'Saira',sans-serif;font-style:italic;font-weight:800;text-transform:uppercase;font-size:24px;margin:0 0 8px}
+.Bp .step p{margin:0;color:#B9C3D2;font-size:15px}
+.Bp .step .when{display:block;margin-top:14px;color:#fff;opacity:.6}
+/* gallery */
+.Bp .gal{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:300px 300px;gap:12px}
+.Bp .gal figure{margin:0;position:relative;overflow:hidden;border-radius:3px}
+.Bp .gal img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.Bp .gal figure:hover img{transform:scale(1.05)}
+.Bp .gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:16px 18px;color:#fff;font-size:14px;background:linear-gradient(0deg,rgba(11,26,51,.85),transparent)}
+.Bp .gal figcaption b{display:block;font-family:'Saira',sans-serif;font-style:italic;font-weight:800;text-transform:uppercase;font-size:18px}
+.Bp .gal .g1{grid-row:1/3}
+.Bp .head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:44px}
+.Bp .head p{max-width:460px;color:var(--mute);margin:0}
+/* quote */
+.Bp .quote{background:var(--paper);padding:120px 0}
+.Bp .qgrid{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:start}
+.Bp .qcard{background:#fff;border-radius:4px;box-shadow:0 1px 0 var(--line),0 30px 60px rgba(14,20,32,.08);padding:40px}
+.Bp .seg{display:grid;grid-template-columns:repeat(4,1fr);background:var(--steel);padding:4px;border-radius:3px;margin-bottom:28px}
+.Bp .seg button{border:0;background:transparent;min-height:44px;border-radius:2px;font-family:'Barlow Condensed',sans-serif;font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:14px;color:var(--mute)}
+.Bp .seg button.on{background:#fff;color:var(--navy);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.Bp .fields{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.Bp .f{display:flex;flex-direction:column;gap:6px}
+.Bp .f.full{grid-column:1/-1}
+.Bp .f label{font-size:13px;font-weight:600;color:var(--ink)}
+.Bp .f input,.Bp .f select,.Bp .f textarea{font:inherit;font-size:15px;min-height:48px;padding:10px 14px;border:1px solid #C9CED6;border-radius:2px;background:#fff;color:var(--ink)}
+.Bp .f textarea{min-height:110px;resize:vertical}
+.Bp .f input:focus,.Bp .f textarea:focus,.Bp .f select:focus{outline:2px solid var(--navy2);outline-offset:0;border-color:var(--navy2)}
+.Bp .up{border:1.5px dashed #AEB5BF;border-radius:3px;padding:20px;display:flex;gap:14px;align-items:center;color:var(--mute);font-size:14px;background:#FBFBFA}
+.Bp .up b{color:var(--ink)}
+.Bp .contact{display:grid;gap:18px;margin-top:34px}
+.Bp .contact a{display:flex;gap:14px;align-items:center;font-weight:600;color:var(--navy)}
+.Bp .contact span.ico{width:44px;height:44px;border-radius:50%;background:#fff;box-shadow:inset 0 0 0 1px var(--line);display:flex;align-items:center;justify-content:center;color:var(--red)}
+.Bp .rq{margin-top:40px;padding:26px;border-left:0;background:#fff;border-radius:4px;box-shadow:inset 0 0 0 1px var(--line)}
+.Bp .rq .st{color:#E2A92B;display:flex;gap:2px;margin-bottom:12px}
+.Bp .rq p{margin:0 0 14px;font-size:17px}
+.Bp .rq small{color:var(--mute)}
+/* footer */
+.Bp footer{background:var(--navy);color:#B9C3D2;padding:80px 0 36px}
+.Bp .fg{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:40px}
+.Bp footer h5{font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:14px;color:#fff;margin:0 0 16px}
+.Bp footer ul{list-style:none;padding:0;margin:0;display:grid;gap:9px;font-size:15px}
+.Bp footer a:hover{color:#fff}
+.Bp .legal{display:flex;justify-content:space-between;margin-top:60px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14);font-size:13px;color:#8090A6}
+@media (max-width:900px){
+ .Bp .wrap{padding:0 20px}
+ .Bp .top .hide-m,.Bp .hdr nav,.Bp .tools .hide-m{display:none}.Bp .menu-m{display:inline-flex}
+ .Bp .top .wrap{justify-content:center}
+ .Bp .hdr .wrap{height:68px}.Bp .hdr img{height:38px !important}
+ .Bp .intro{padding:40px 0 36px}
+ .Bp .intro .grid{grid-template-columns:1fr;gap:24px;text-align:left}
+ .Bp .intro .crest{width:170px}
+ .Bp .h1{font-size:46px}
+ .Bp .bays{grid-template-columns:1fr 1fr;height:auto}
+ .Bp .bay{min-height:300px;padding:18px;border-bottom:1px solid rgba(255,255,255,.14)}
+ .Bp .bay .num{font-size:40px;top:16px;left:18px}
+ .Bp .bay h3{font-size:24px}.Bp .bay p,.Bp .bay ul{display:none}.Bp .bay .go{padding:10px 12px;font-size:12px}
+ .Bp .spec{grid-template-columns:1fr 1fr}.Bp .spec div{padding:20px 16px;border-bottom:1px solid var(--line);flex-direction:column;gap:8px}
+ .Bp .sec{padding:70px 0}
+ .Bp .h2{font-size:34px}
+ .Bp .row{grid-template-columns:1fr;gap:28px;padding:44px 0}
+ .Bp .row.rev .media{order:0}
+ .Bp .media{height:340px}
+ .Bp dl{grid-template-columns:130px 1fr}
+ .Bp .process{padding:70px 0}
+ .Bp .steps{grid-template-columns:1fr;gap:28px}.Bp .steps::before{display:none}.Bp .step{display:grid;grid-template-columns:56px 1fr;gap:0 18px;padding:0}.Bp .step .dot{margin:0;grid-row:1/4}
+ .Bp .head{flex-direction:column;align-items:flex-start;gap:14px}
+ .Bp .gal{grid-template-columns:1fr 1fr;grid-template-rows:220px 160px 160px}.Bp .gal .g1{grid-column:1/-1;grid-row:auto}
+ .Bp .quote{padding:70px 0}
+ .Bp .qgrid{grid-template-columns:1fr;gap:36px}
+ .Bp .qcard{padding:22px}
+ .Bp .seg{grid-template-columns:1fr 1fr}
+ .Bp .fields{grid-template-columns:1fr}
+ .Bp .fg{grid-template-columns:1fr 1fr}.Bp .fg > div:first-child{grid-column:1/-1}
+ .Bp .legal{flex-direction:column;gap:8px}
+}
+
+.Bp{--ink:#E4E8EE;--mute:#A3ADBA;--line:rgba(255,255,255,.12);--paper:#0B1322;--steel:#131C2C;background:#070C16;color:#E4E8EE}
+.Bp .h1,.Bp .h2{color:#fff}
+.Bp .top{background:#03070E;color:#9AA6B6;border-bottom:1px solid var(--line)}
+.Bp .hdr{background:rgba(7,12,22,.9);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);position:sticky;top:0;z-index:40}
+.Bp .hdr nav a{color:#D6DCE5}.Bp .hdr nav a:hover{background:rgba(255,255,255,.06);color:#fff}
+.Bp .iconbtn{color:#E4E8EE}.Bp .iconbtn:hover{background:rgba(255,255,255,.08)}
+.Bp .intro{position:relative;background:radial-gradient(900px 480px at 12% 0%,rgba(20,48,107,.55),transparent 65%),radial-gradient(700px 400px at 100% 100%,rgba(200,16,46,.12),transparent 60%),#070C16;border-bottom:1px solid var(--line)}
+.Bp .intro::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;background:repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0 1px,transparent 1px 120px)}
+.Bp .intro .grid{position:relative}
+.Bp .intro .crest{filter:drop-shadow(0 20px 40px rgba(0,0,0,.5))}
+.Bp .btn-navy{background:#14306B;color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.18)}.Bp .btn-navy:hover{background:#1C3F86}
+.Bp .btn-line{background:transparent;color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.45)}.Bp .btn-line:hover{background:rgba(255,255,255,.08)}
+.Bp .bays{background:#03070E}
+.Bp .bay{border-right-color:rgba(255,255,255,.1)}
+.Bp .bay::after{background:linear-gradient(0deg,rgba(5,9,18,.96) 0%,rgba(5,9,18,.5) 46%,rgba(5,9,18,.05) 100%)}
+.Bp .bay .slides{position:absolute;inset:0;z-index:-2;overflow:hidden}
+.Bp .bay .slides > img,.Bp .bay .slides > video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;z-index:0;transition:opacity 1.2s ease,transform 1s cubic-bezier(.2,.7,.2,1)}
+.Bp .bay .slides > .on{opacity:1;z-index:1}
+.Bp .bay .slides > .sl.on > img{animation:kb 7s linear both}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.06)}}
+.Bp .bay:hover .slides > video.on{transform:scale(1.05)}
+.Bp .ticks{position:absolute;top:34px;right:28px;display:flex;gap:5px;z-index:2}
+.Bp .ticks i{width:16px;height:2px;background:rgba(255,255,255,.35);transition:background .4s,width .4s}
+.Bp .ticks i.on{background:#fff;width:26px}
+.Bp .bay .gos{display:flex;gap:8px;flex-wrap:nowrap}.Bp .bay .gos .go{white-space:nowrap}
+.Bp .bay .go{position:relative;z-index:3}
+.Bp .bay .go.stretch{position:static}
+.Bp .bay .go.stretch::before{content:"";position:absolute;inset:0;z-index:1}
+.Bp .bay .go.stretch{z-index:auto}
+.Bp .bay .go2{background:transparent}
+.Bp .bay:hover .go{background:rgba(255,255,255,.1);box-shadow:inset 0 0 0 1px rgba(255,255,255,.3)}
+.Bp .bay .go:hover,.Bp .bay:hover .go.stretch{background:var(--red);box-shadow:none}
+.Bp .bay .go2:hover{background:#fff !important;color:#0B1A33}
+.Bp .spec{background:#070C16}
+.Bp .spec b{color:#fff !important}
+.Bp .row dd{color:#E4E8EE}
+.Bp .media .tag{background:rgba(7,12,22,.85);color:#fff;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.Bp .process{background:linear-gradient(180deg,#0E1B33,#0B1322);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.Bp .step .dot{background:#0E1B33}
+.Bp .quote{background:#0B1322}
+.Bp .qcard{background:#0F1726;box-shadow:inset 0 0 0 1px var(--line),0 30px 60px rgba(0,0,0,.45)}
+.Bp .seg{background:#070C16}.Bp .seg button{color:#A3ADBA}.Bp .seg button.on{background:#1A2538;color:#fff;box-shadow:none}
+.Bp .f label{color:#E4E8EE}
+.Bp .f input,.Bp .f select,.Bp .f textarea{background:#0B1220;border-color:rgba(255,255,255,.2);color:#fff}
+.Bp .f input:focus,.Bp .f textarea:focus,.Bp .f select:focus{outline-color:#5B7FD0;border-color:#5B7FD0}
+.Bp .up{background:#0B1220;border-color:rgba(255,255,255,.25)}
+.Bp .contact a{color:#fff}.Bp .contact span.ico{background:#0F1726;box-shadow:inset 0 0 0 1px var(--line)}
+.Bp .rq{background:#0F1726}
+.Bp footer{background:#03070E;border-top:1px solid var(--line)}
+.Bp .gal figcaption{background:linear-gradient(0deg,rgba(5,9,18,.9),transparent)}
+@media (max-width:900px){
+ .Bp .bays{grid-template-columns:1fr}
+ .Bp .bay{min-height:420px;padding:22px}
+ .Bp .bay p{display:block;font-size:14px;margin-bottom:16px}
+ .Bp .bay h3{font-size:32px}
+ .Bp .ticks{top:24px;right:18px}
+}
+
+/* whole-photo display: never crop, fill leftover space with a blurred copy */
+.fit{position:relative;overflow:hidden;background:#0B1322}
+.fit::before{content:"";position:absolute;inset:-30px;background:var(--bg) center/cover no-repeat;filter:blur(22px) brightness(.5) saturate(1.1);transform:scale(1.1);z-index:0}
+.fit > img{position:relative;z-index:1;width:100%;height:100%;object-fit:contain !important;filter:drop-shadow(0 10px 24px rgba(0,0,0,.45))}
+.fit > :not(img){z-index:2}
+.Bp .bay .slides > .sl{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease}
+.Bp .bay .slides > .sl.on{opacity:1;z-index:1}
+.Bp .bay .slides > .sl > img{position:absolute;inset:0;height:46%;top:9%;width:100%;z-index:1;filter:drop-shadow(0 14px 30px rgba(0,0,0,.6))}
+@media (max-width:900px){.Bp .bay .slides > .sl > img{height:44%;top:12%}}
+.Bp .media > div > img,.Bp .gal figure > img{position:absolute;inset:0}
+.Bp .gal figure:hover img{transform:scale(1.02)}
+.pg-card-img.fit > img{transform:none}
+.pg-mosaic > span{border-radius:var(--t-r);display:block}
+.pg-mosaic > span:first-child{grid-row:1/3}
+.pg-mosaic > span > img{border-radius:0}
+
+@media (prefers-reduced-motion:reduce){.Bp .bay .slides > .sl.on > img{animation:none}}
+
+.Bp{--t-bg:#070C16;--t-bg2:#0B1322;--t-fg:#E4E8EE;--t-head:#fff;--t-mute:#A3ADBA;--t-line:rgba(255,255,255,.12);--t-card:#0F1726;--t-accent:#E0566A;--t-input:#0D1422;--t-inputline:rgba(255,255,255,.22);--t-r:3px;--t-herotop:110px;overflow:visible}
+.demo-flag{position:fixed;right:14px;bottom:14px;z-index:90;background:rgba(11,26,51,.92);color:#fff;font:600 12px/1 'Barlow',sans-serif;padding:9px 12px;border-radius:20px;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+
+.toast,.drawer,.lb{font-family:'Barlow',sans-serif}
+@media (max-width:900px){.demo-flag{font-size:10px;padding:6px 9px;right:8px;bottom:8px;opacity:.85}}
+</style>
+</head>
+<body>
+<div class="Bp">
+
+<div class="top"><div class="wrap"><span>Shop in Blunt, SD · Serving agencies &amp; customers nationwide</span><span class="hide-m"><a href="#contact">(605) 280-6477</a> · <a href="#track">Order tracking</a> · <a href="#quote">Agency accounts</a></span></div></div>
+<header class="hdr"><div class="wrap">
+  <a href="#home" aria-label="316 Customs home"><img src="media/logo_h_dark.png" alt="316 Customs" style="height:50px;width:auto"></a>
+  <nav aria-label="Main"><a href="#boomboxes">Boomboxes</a><a href="#printing">3D Printing</a><a href="#supply">Supply</a><a href="#upfitting" data-route>Upfitting</a><a href="#gallery">Gallery</a><a href="#about">About</a></nav>
+  <div class="tools"><button class="iconbtn hide-m" aria-label="Search" data-act="search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg></button><button class="iconbtn hide-m" aria-label="Account"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"></path></svg></button><a class="iconbtn" href="#cart" aria-label="Cart"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.5L21 8H6.2"></path><circle cx="10" cy="20" r="1.3"></circle><circle cx="17" cy="20" r="1.3"></circle></svg><span class="badge" data-cart-count style="display:none">0</span></a><a class="btn btn-red hide-m" href="#quote" style="min-height:44px;margin-left:8px">Get a Quote</a><button class="iconbtn menu-m" aria-label="Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></button></div>
+</div></header>
+
+
+<main id="app"></main>
+<footer><div class="wrap">
+  <div class="fg">
+    <div><img src="media/logo_main.png" alt="316 Customs" style="width:140px"><p style="margin:18px 0 0;font-size:15px;max-width:260px">Upfitting · Boomboxes · Supply · 3D Printing. Built in Blunt, South Dakota since 2019.</p></div>
+    <div><h5>Divisions</h5><ul><li><a href="#boomboxes">Boomboxes</a></li><li><a href="#printing">3D Printing</a></li><li><a href="#supply">Supply</a></li><li><a href="#upfitting">Upfitting</a></li></ul></div>
+    <div><h5>Customers</h5><ul><li><a href="#quote">Request a quote</a></li><li><a href="#track">Order tracking</a></li><li><a href="#quote">Agency accounts</a></li><li><a href="#contact">Shipping &amp; returns</a></li></ul></div>
+    <div><h5>Contact</h5><ul><li>Blunt, SD 57522</li><li><a href="#contact">(605) 280-6477</a></li><li><a href="#upfitting">316upfitting@gmail.com</a></li><li><a href="https://www.facebook.com/316upfittingandsupply" rel="noopener">Facebook</a> · <a href="https://www.tiktok.com/@316.supply" rel="noopener">TikTok</a> · <a href="https://www.etsy.com/shop/316SupplyDesign" rel="noopener">Etsy</a></li></ul></div>
+  </div>
+  <div class="legal"><span>© 2026 316 Upfitting &amp; Supply, LLC</span><span>*Emergency warning lights sold for authorized use only.</span></div>
+</div></footer>
+
+</div>
+<template id="tpl-home"><section class="intro"><div class="wrap"><div class="grid">
+  <img class="crest" src="media/logo_home.png" alt="316 Customs crest — Upfitting, Boomboxes, Supply, 3D Printing — Est. 2019">
+  <h1 class="h1">One shop.<br>Four ways<br>to build.</h1>
+  <div><div class="tick lbl"><i></i>Est. 2019 · Blunt, South Dakota</div><p>Custom boomboxes, 3D printing, installer-grade supply and emergency vehicle upfitting — all designed, wired and finished in-house.</p><div style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn btn-navy" href="#boomboxes">Explore the shop</a><a class="btn btn-line" href="#quote">Request a quote</a></div></div>
+</div></div></section>
+
+<section class="bays" aria-label="Divisions">
+<div class="bay"><div class="slides" data-slides="video" data-dur="5800"><video src="media/bbv2.mp4" poster="media/bbv2.jpg" muted playsinline preload="auto" autoplay class="on" aria-label="Boombox video 1"></video><video src="media/bbv4.mp4" poster="media/bbv4.jpg" muted playsinline preload="metadata" class="" aria-label="Boombox video 2"></video><video src="media/bbv1.mp4" poster="media/bbv1.jpg" muted playsinline preload="metadata" class="" aria-label="Boombox video 3"></video><video src="media/bbv3.mp4" poster="media/bbv3.jpg" muted playsinline preload="metadata" class="" aria-label="Boombox video 4"></video></div><span class="ticks" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="door"></span><span class="num">01</span>
+  <h3>Boomboxes</h3><p>Rugged-case Bluetooth speakers, built to order.</p><ul><li>From $220</li><li>3 case colors</li><li>Tool-battery powered</li></ul>
+  <div class="gos"><a class="go lbl stretch" href="#boomboxes">Shop all <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a><a class="go go2 lbl" href="#builder">Build yours <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a></div></div>
+<div class="bay"><div class="slides"><video class="on" src="media/p_printer.mp4" poster="media/pposter_printer.jpg" autoplay muted loop playsinline preload="metadata" aria-label="3D printer printing a sign"></video></div><span class="door"></span><span class="num">02</span>
+  <h3>3D Printing</h3><p>Personalized products, parts and bulk orders.</p><ul><li>Upload STL or logo</li><li>Agency &amp; team gear</li><li>Ready-made items in stock</li></ul>
+  <div class="gos"><a class="go lbl stretch" href="#print-custom">Custom made <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a><a class="go go2 lbl" href="#print-shop">In stock <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a></div></div>
+<div class="bay"><div class="slides" data-slides="img" data-dur="4200" data-delay="1400"><div class="sl fit on" style="--bg:url(media/spools.jpg)"><img src="media/spools.jpg" alt="Wire spools"></div><div class="sl fit" style="--bg:url(media/wires.jpg)"><img src="media/wires.jpg" alt="Connectors and wiring"></div><div class="sl fit" style="--bg:url(media/fuse.jpg)"><img src="media/fuse.jpg" alt="Fuse and relay panel"></div><div class="sl fit" style="--bg:url(media/gator.jpg)"><img src="media/gator.jpg" alt="LED lighting"></div></div><span class="ticks" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="door"></span><span class="num">03</span>
+  <h3>Supply</h3><p>Wire, connectors, lighting and install parts.</p><ul><li>Shop-tested stock</li><li>Ships nationwide</li><li>Bulk pricing</li></ul>
+  <div class="gos"><a class="go lbl stretch" href="#supply">Shop supply <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a></div></div>
+<div class="bay"><div class="slides" data-slides="img" data-dur="4200" data-delay="0"><div class="sl fit on" style="--bg:url(media/sheriff.jpg)"><img src="media/sheriff.jpg" alt="Sheriff Tahoe at sunset"></div><div class="sl fit" style="--bg:url(media/fire.jpg)"><img src="media/fire.jpg" alt="Fire engine refit"></div><div class="sl fit" style="--bg:url(media/ram.jpg)"><img src="media/ram.jpg" alt="Ram pickup upfit"></div><div class="sl fit" style="--bg:url(media/havis.jpg)"><img src="media/havis.jpg" alt="Console install"></div><div class="sl fit" style="--bg:url(media/yellow.jpg)"><img src="media/yellow.jpg" alt="Ranch truck lighting"></div><div class="sl fit" style="--bg:url(media/drawers.jpg)"><img src="media/drawers.jpg" alt="Cargo drawer system"></div></div><span class="ticks" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="door"></span><span class="num">04</span>
+  <h3>Upfitting</h3><p>Emergency &amp; specialty vehicles for agencies and fleets.</p><ul><li>Lighting &amp; sirens</li><li>Consoles &amp; partitions</li><li>Full fleet rollouts</li></ul>
+  <div class="gos"><a class="go lbl stretch" href="#upfitting">Start a quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a></div></div>
+</section>
+
+<div class="wrap" style="padding:0"><div class="spec">
+  <div><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path><path d="M9 12l2 2 4-4"></path></svg><span><b>Built &amp; tested in-house</b><span>Every circuit labeled and checked twice</span></span></div>
+  <div><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"></path><path d="M14 3v4h4M9 12h6M9 16h6"></path></svg><span><b>Agency-ready</b><span>POs, W-9 and net-30 terms</span></span></div>
+  <div><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h11v10H3zM14 10h4l3 3v3h-7"></path><circle cx="7" cy="18" r="2"></circle><circle cx="17" cy="18" r="2"></circle></svg><span><b>Ships nationwide</b><span>Free local pickup in Blunt, SD</span></span></div>
+  <div><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span><b>Fast quotes</b><span>Most quotes back same business day</span></span></div>
+</div></div>
+
+<section class="sec"><div class="wrap"><div class="row"><div class="media"><div class="big"><img src="media/bb_redblue.jpg" alt="Rockville beat-sync"><span class="tag lbl">Rockville beat-sync</span></div><div><img src="media/bb_orange.jpg" alt="Pyle 100W"><span class="tag lbl">Pyle 100W</span></div><div><img src="media/bb_tan.jpg" alt="Pyle 220W"><span class="tag lbl">Pyle 220W</span></div></div><div><span class="dnum">01</span><span class="lbl" style="color:var(--mute)">316 Boomboxes</span><h3 class="h2" style="margin-top:12px">Big sound in a case you can’t break.</h3><p class="lead">Hard-case Bluetooth speakers with marine-grade drivers and tool-battery power. Built one at a time in our shop.</p><dl><dt>Builds</dt><dd>Pyle 100W · Pyle 220W · Boss 220W · Rockville 220W</dd><dt>Cases</dt><dd>Black, tan or orange — custom handles available</dd><dt>Power</dt><dd>DeWalt or Milwaukee battery adapter</dd><dt>Price</dt><dd>$220 – $270, made to order</dd></dl><a class="btn btn-navy" href="#builder">Configure a boombox <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a></div></div><div class="row rev"><div class="media"><div class="big"><img src="media/minis.jpg" alt="Custom minis"><span class="tag lbl">Custom minis</span></div><div><img src="media/pouches.jpg" alt="Glove pouches"><span class="tag lbl">Glove pouches</span></div><div><img src="media/nametag.jpg" alt="Name tags"><span class="tag lbl">Name tags</span></div></div><div><span class="dnum">02</span><span class="lbl" style="color:var(--mute)">316 3D Printing</span><h3 class="h2" style="margin-top:12px">From a sketch to a finished part.</h3><p class="lead">Personalized gifts, agency gear, replacement parts and bulk production runs — quoted fast, printed in-house.</p><dl><dt>Upload</dt><dd>STL, 3MF, STEP, PNG, JPG or SVG</dd><dt>Materials</dt><dd>PLA, PETG, TPU — 20+ colors</dd><dt>Popular</dt><dd>Glove pouches, can holders, name tags, organizers</dd><dt>Turnaround</dt><dd>Most orders ship in 3–5 business days</dd></dl><div style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn btn-navy" href="#print-custom">Custom made <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a><a class="btn btn-line" href="#print-shop">Shop in stock <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a></div></div></div><div class="row"><div class="media"><div class="big"><img src="media/spools.jpg" alt="Primary wire"><span class="tag lbl">Primary wire</span></div><div><img src="media/wires.jpg" alt="Connector kits"><span class="tag lbl">Connector kits</span></div><div><img src="media/gator.jpg" alt="LED lighting"><span class="tag lbl">LED lighting</span></div></div><div><span class="dnum">03</span><span class="lbl" style="color:var(--mute)">316 Supply</span><h3 class="h2" style="margin-top:12px">The same parts we install with.</h3><p class="lead">Professional-grade wire, connectors, relays and lighting, stocked for installers, fleets and DIY builders.</p><dl><dt>Wire</dt><dd>Primary wire 10–20 AWG, 100 & 500 ft spools</dd><dt>Connectors</dt><dd>Heat-shrink, butt, ring, spade, Deutsch</dd><dt>Lighting</dt><dd>LED light bars, pods, warning lights*</dd><dt>Shipping</dt><dd>Same-day shipping on orders by 2 pm CT</dd></dl><a class="btn btn-navy" href="#supply">Shop supply <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a></div></div><div class="row rev"><div class="media"><div class="big"><img src="media/sheriff.jpg" alt="Patrol build · 2024"><span class="tag lbl">Patrol build · 2024</span></div><div><img src="media/fuse.jpg" alt="Wiring"><span class="tag lbl">Wiring</span></div><div><img src="media/havis.jpg" alt="Console"><span class="tag lbl">Console</span></div></div><div><span class="dnum">04</span><span class="lbl" style="color:var(--mute)">316 Upfitting</span><h3 class="h2" style="margin-top:12px">Built to agency spec. Ready for patrol.</h3><p class="lead">We plan, wire and install complete emergency vehicle packages — and stand behind every connection.</p><dl><dt>Vehicles</dt><dd>Tahoe PPV, Durango, F-150 PIU, Ram, Explorer, fire apparatus</dd><dt>Systems</dt><dd>Lightbars, sirens, controllers, radios, cameras</dd><dt>Interior</dt><dd>Consoles, docks, partitions, cargo storage</dd><dt>Paperwork</dt><dd>Government POs, W-9, net-30 terms</dd></dl><a class="btn btn-navy" href="#quote">Request a fleet quote <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a></div></div></div></section>
+
+<section class="process"><div class="wrap">
+  <div class="head" style="margin:0"><div><span class="lbl" style="color:#E0566A">How it works</span><h2 class="h2" style="margin-top:14px">From quote to keys<br>in four steps.</h2></div><p style="color:#B9C3D2">Same process whether it’s one boombox or a twelve-vehicle fleet rollout — clear pricing, a written plan and updates along the way.</p></div>
+  <div class="steps"><div class="step"><span class="dot"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"></path><path d="M14 3v4h4M9 12h6M9 16h6"></path></svg></span><h4>Quote</h4><p>Tell us the vehicle, product or idea. Attach photos, specs or files.</p><span class="when lbl">Same business day</span></div><div class="step"><span class="dot"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"></rect><path d="M8 8h8M8 12h3M13 12h3M8 16h3M13 16h3"></path></svg></span><h4>Spec & approve</h4><p>We send a written plan, parts list and price. Pay a deposit or send a PO.</p><span class="when lbl">1–2 days</span></div><div class="step"><span class="dot"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 3L5 14h6l-1 7 8-11h-6l1-7z"></path></svg></span><h4>Build</h4><p>Fabrication, wiring and finishing in our Blunt, SD shop — tested twice.</p><span class="when lbl">Varies by project</span></div><div class="step"><span class="dot"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h11v10H3zM14 10h4l3 3v3h-7"></path><circle cx="7" cy="18" r="2"></circle><circle cx="17" cy="18" r="2"></circle></svg></span><h4>Deliver</h4><p>Pick up at the shop, schedule an install or ship nationwide.</p><span class="when lbl">Tracking on every order</span></div></div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <div class="head"><div><span class="lbl" style="color:#E0566A">Project gallery</span><h2 class="h2" style="margin-top:14px">Recent builds</h2></div><a class="btn btn-line" href="#gallery">View all projects <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a></div>
+  <div class="gal"><figure class="g1"><img src="media/sheriff.jpg" alt="Patrol Tahoe"><figcaption><b>Patrol Tahoe</b>Lighting · siren · console · partition</figcaption></figure><figure class=""><img src="media/fire.jpg" alt="Engine refit"><figcaption><b>Engine refit</b>Scene lighting & wiring</figcaption></figure><figure class=""><img src="media/yellow.jpg" alt="Ranch truck"><figcaption><b>Ranch truck</b>Grille guard & lighting</figcaption></figure><figure class=""><img src="media/drawers.jpg" alt="Cargo storage"><figcaption><b>Cargo storage</b>Locking drawer system</figcaption></figure><figure class=""><img src="media/lineup_night.jpg" alt="Boombox drop"><figcaption><b>Boombox drop</b>This month’s builds</figcaption></figure></div>
+</div></section>
+
+<section class="quote"><div class="wrap"><div class="qgrid">
+  <div>
+    <span class="lbl" style="color:#E0566A">Start a project</span>
+    <h2 class="h2" style="margin-top:14px">Tell us what you’re building.</h2>
+    <p style="color:var(--mute);margin:20px 0 0;font-size:18px">One form for every division. Attach photos, specs or design files and we’ll reply with a plan and a price.</p>
+    <div class="contact"><a href="#contact"><span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"></path></svg></span>(605) 280-6477</a><a href="#upfitting"><span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"></path></svg></span>316upfitting@gmail.com</a><a href="#contact"><span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"></path><circle cx="12" cy="9" r="2.5"></circle></svg></span>Blunt, SD 57522 — by appointment</a></div>
+    <figure class="rq" style="margin:40px 0 0"><div class="st"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"></path></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"></path></svg></div><p>“Clear quote, fair price and the Tahoe came back cleaner than any install we’ve had done.”</p><small>Fleet Coordinator · Central SD agency</small></figure>
+  </div>
+  <div class="qcard">
+    <div class="seg" role="tablist" aria-label="Project type"><button class="on" type="button">Upfitting</button><button type="button">Boombox</button><button type="button">3D Print</button><button type="button">Supply</button></div>
+    <div class="fields">
+      <div class="f"><label for="b1">Name</label><input id="b1" value="Jordan Miller"></div>
+      <div class="f"><label for="b2">Agency or company</label><input id="b2" value="County Sheriff’s Office"></div>
+      <div class="f"><label for="b3">Email</label><input id="b3" type="email" placeholder="you@agency.gov"></div>
+      <div class="f"><label for="b4">Phone</label><input id="b4" type="tel" placeholder="(605) 000-0000"></div>
+      <div class="f"><label for="b5">Vehicle year / make / model</label><input id="b5" value="2025 Chevrolet Tahoe PPV"></div>
+      <div class="f"><label for="b6">Number of vehicles</label><select id="b6"><option>1</option><option selected="">2–5</option><option>6–10</option><option>11+</option></select></div>
+      <div class="f full"><label for="b7">What do you need?</label><textarea id="b7">Full patrol package: lightbar, siren and speaker, console with dock, partition and rear cargo storage.</textarea></div>
+      <div class="f full"><span class="up"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5"></path><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"></path></svg><span><b>Attach photos, specs or files</b><br>PDF, JPG, PNG, STL — up to 25 MB each</span></span></div>
+      <div class="f full" style="flex-direction:row;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap"><span style="font-size:13px;color:var(--mute)">We reply within one business day.</span><a class="btn btn-red" href="#quote">Send request <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a></div>
+    </div>
+  </div>
+</div></div></section>
+
+</template>
+<span class="demo-flag">Concept B · Revision 1 · sample content</span>
+<script src="site.js"></script>
+</body>
+</html>
